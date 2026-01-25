@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">login_signup_kotlin</string>
+    <string name="title_login">Create Account</string>
+    <string name="desc_login"><![CDATA[Join our community today & start expolring.]]></string>
+</resources>
