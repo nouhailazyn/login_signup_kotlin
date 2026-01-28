@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">login_signup_kotlin</string>
     <string name="title_login">Create Account</string>
-    <string name="desc_login"><![CDATA[Join our community today & start expolring.]]></string>
+    <string name="desc_intro">Join our community today and start expolring, sign in to continue or create a new account to get started.</string>
+    <string name="welcome">WELCOME</string>
+    <string name="start">Get Started</string>
+    <string name="titre_login">Welcome Back</string>
+    <string name="desc_login">Please enter your details to sign in.</string>
+    <string name="email">Email</string>
+    <string name="pw">Password</string>
+    <string name="forget_pw">Forget password?</string>
+    <string name="email_hint">name@gmail.com</string>
+    <string name="password_hint">********</string>
+    <string name="login">Login</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="signup">Sign Up</string>
 </resources>

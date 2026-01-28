@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome to MyApp"
+            android:text="@string/welcome"
             android:gravity="center"
             android:textSize="26sp"
             android:textStyle="bold"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Sign in to continue or create a new account to get started."
+            android:text="@string/desc_intro"
             android:textSize="20sp"
             android:textColor="@color/grey_200"
             android:textAlignment="center"
@@ -47,7 +47,7 @@
             android:textColor="@color/primary_900"
             android:gravity="center"
             android:textSize="20sp"
-            android:text="Get Started" />
+            android:text="@string/start" />
 
     </LinearLayout>
 
