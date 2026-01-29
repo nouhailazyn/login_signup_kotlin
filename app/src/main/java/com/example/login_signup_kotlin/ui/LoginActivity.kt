@@ -1,4 +1,4 @@
-package com.example.login_signup_kotlin
+package com.example.login_signup_kotlin.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,11 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.login_signup_kotlin.R
+import com.example.login_signup_kotlin.data.AppDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var editEmail: EditText
@@ -14,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var tvForgetPw: TextView
     private lateinit var btnLogin: Button
     private lateinit var linkSignup: TextView
+    private lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,28 +31,34 @@ class LoginActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btnLogin)
         linkSignup = findViewById(R.id.linkSignup)
 
+        db = AppDatabase.getInstance(this)
+
         btnLogin.setOnClickListener {
             val email = editEmail.text.toString().trim()
             val password = editPW.text.toString().trim()
 
             //CHECK: if empty show Toast
-            if(email.isEmpty() || password.isEmpty()) {
+            if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please enter email & password!!", Toast.LENGTH_LONG).show()
-            }else{
-                if(email == "test@gmail.com" && password == "1234"){
-                    Toast.makeText(this, "Login pass avec success", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    startActivity(intent)
+                return@setOnClickListener
+            }
 
-                    editEmail.text.clear()
-                    editPW.text.clear()
-                    finish()
-                }else{
-                    Toast.makeText(this, "Invalide credentials", Toast.LENGTH_SHORT).show()
+            //couroutine to use suspend fucntions
+            val userDao = db.UserDao()
+            lifecycleScope.launch(Dispatchers.IO) {
+                val user = userDao.loginUser(email, password) // suspend function called in background
+
+                launch(Dispatchers.Main) {
+                    if(user != null) {
+                        Toast.makeText(this@LoginActivity, "Welcome ${user.nom}", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    } else {
+                        Toast.makeText(this@LoginActivity, "Email or password incorrect", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
-        }
 
+        }
         // SignUp link click
         linkSignup.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)

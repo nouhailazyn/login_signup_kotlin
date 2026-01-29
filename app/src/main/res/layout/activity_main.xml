@@ -1,28 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical"
-    android:layout_margin="20dp">
+    android:padding="20dp">
 
-    <!-- Title -->
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editLibelle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_login"
-        android:textSize="35sp"
-        android:textStyle="bold"/>
-    <!-- Description title -->
-    <TextView
-        android:layout_width="wrap_content"
+        android:hint="Libellé"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/editPrix"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/desc_login"
-        android:textSize="20sp"
-        android:textColor="#757575"
-        android:layout_marginTop="5dp"/>
+        android:hint="Prix Unitaire"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/editQuantite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Quantité en Stock"
+        android:inputType="number"
+        android:layout_marginBottom="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="183dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/btn_add"
+            android:textColor="@color/white" />
+        <Button
+            android:id="@+id/btnView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_view"
+            android:textColor="@color/white"
+            android:layout_margin="5dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
 
 </LinearLayout>

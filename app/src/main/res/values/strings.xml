@@ -14,4 +14,13 @@
     <string name="login">Login</string>
     <string name="no_account">Don\'t have an account?</string>
     <string name="signup">Sign Up</string>
+    <string name="titre_signup">Create Account</string>
+    <string name="desc_signup">Join our community and start exploring.</string>
+    <string name="FullName">Full Name</string>
+    <string name="fullNameHint">Enter your full name</string>
+    <string name="pwConf">Confirm Password</string>
+    <string name="password_confirm_hint">Repeat your password</string>
+    <string name="alredy_account">Already have an account?</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_view">View</string>
 </resources>
