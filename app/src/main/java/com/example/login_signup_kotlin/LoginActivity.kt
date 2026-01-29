@@ -43,7 +43,6 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }else{
                     Toast.makeText(this, "Invalide credentials", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
                 }
             }
         }
